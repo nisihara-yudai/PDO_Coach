@@ -5,11 +5,13 @@
 // CREATE TABLE items(id int,item_name varchar(10),price int, keyword varchar(20)); //テーブルを作成する
 
 // データベースに接続する
-$dsn = 'mysql:dbname=mydb;host=localhost;charset=utf8';
+$dsn = 'mysql:Dbname=mydb;host=localhost;';
 $user = 'root';
 $password = 'root';
 
-var_dump($dsn);
+// var_dump($dsn);
+// var_dump($user);
+// var_dump($password);
 
 try{
   $dbh = new PDO($dsn,$user,$password);
@@ -18,4 +20,10 @@ try{
   print('Error:'.$e->getMessage());
 }
 
-$dbh = null;
+// 追加
+$count = $dbh->exec('INSERT INTO items SET id = 1 , item_name = "peach",price = 210 ,keyword = "缶詰,ピンク,甘い"');
+echo $count . '件のデータを挿入しました';
+// 追加終わり
+
+// $dbh = null;
+
