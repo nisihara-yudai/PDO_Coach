@@ -21,9 +21,12 @@ try{
 }
 
 // 追加
-$count = $dbh->exec('INSERT INTO items SET id = 1 , item_name = "peach",price = 210 ,keyword = "缶詰,ピンク,甘い"');
-echo $count . '件のデータを挿入しました';
+// $count = $dbh->exec('INSERT INTO items SET id=1,item_name="peach",price=210,keyword="缶詰,ピンク,甘い"');
+// var_dump($count);
+// echo $count.'件のデータを挿入しました';
 // 追加終わり
+
+$sql = 'INSERT INTO items(id, item_name, price,)'
 
 // $dbh = null;
 
