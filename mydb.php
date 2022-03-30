@@ -5,7 +5,7 @@
 // CREATE TABLE items(id int,item_name varchar(10),price int, keyword varchar(20)); //テーブルを作成する
 
 // データベースに接続する
-$dsn = 'mysql:Dbname=mydb;host=localhost;';
+$dsn = 'mysql:dbname=mydb;host=localhost';
 $user = 'root';
 $password = 'root';
 
@@ -21,9 +21,9 @@ try{
 }
 
 // 追加
-$count = $dbh->exec('insert into items(id,item_name,price,keyword) values (1,"peach",210,"缶詰,ピンク,甘い"');
+$count = $dbh->exec('insert into items(id,item_name,price,keyword) values (1,"peach",210,"缶詰,ピンク,甘い")');
 // var_dump($count);
-echo "{$count}件のデータを挿入しました".PHP_EOL;
+echo "{$count}件のデータを挿入しました。".PHP_EOL;
 // 追加終わり
 
 $dbh = null;
