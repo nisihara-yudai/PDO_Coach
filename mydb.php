@@ -16,14 +16,37 @@ $password = 'root';
 try{
   $dbh = new PDO($dsn,$user,$password);
   print("接続に成功しました。<br>");
-}catch(PDOException $e){
-  print('Error:'.$e->getMessage());
+  // $count = $dbh->exec('insert into items(id,item_name,price,keyword) values (1,"peach",210,"缶詰,ピンク,甘い")');
+  // var_dump($count);
+
+  // SQL文をセット
+  // $stmt = $dbh->prepare('INSERT INTO item (id,item_name,price,keyword) VALUES (1,"peach",210,"缶詰,ピンク,甘い")');
+  // var_dump($stmt);
+  // // 値をセット
+  // $stmt->bindValue(':id',1);
+  // $stmt->bindValue(':item_name', 'peach');
+  // $stmt->bindValue(':price', 210);
+  // $stmt->bindValue(':keyword', "缶詰,ピンク,甘い");
+
+  // // SQLを実行している
+  // $stmt->execute();
+  // echo "{$stmt}件のデータを挿入しました。";
+  }catch(PDOException $e){
+    print('Error:'.$e->getMessage());
 }
 
 // 追加
+// $count = "INSERT INTO items (id,item_name,price,keyword) VALUES(1,'peach',210,'缶詰,ピンク,甘い')";
+
+// $res = $dbh->query($count);
+
+// var_dump($res);
+
 $count = $dbh->exec('insert into items(id,item_name,price,keyword) values (1,"peach",210,"缶詰,ピンク,甘い")');
 // var_dump($count);
-echo "{$count}件のデータを挿入しました。".PHP_EOL;
+echo $count . "件のデータを挿入しました。";
+// $countId = $dbh->lastInsertId($count);
+// echo "{$countId}件のデータを挿入しました。";
 // 追加終わり
 
 $dbh = null;
